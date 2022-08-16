@@ -28,22 +28,22 @@
   "permission": [
     {
       "id": 1,
-      "route": "/users",
+      "route": "/dashboard",
       "type": "create"
     },
     {
       "id": 2,
-      "route": "/users",
+      "route": "/dashboard",
       "type": "read"
     },
     {
       "id": 3,
-      "route": "/users",
+      "route": "/dashboard",
       "type": "update"
     },
     {
       "id": 4,
-      "route": "/users",
+      "route": "/dashboard",
       "type": "delete"
     }
   ]

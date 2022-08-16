@@ -37,7 +37,8 @@ export const { useDeletePermissionMutation } =
   injectDeleteItem<PermissionState>(tag, route);
 
 // returns the query result object
-export const selectPermissionsResult = endpoints.getPermissions.select();
+export const getPermissions = endpoints.getPermissions;
+export const selectPermissionsResult = getPermissions.select();
 
 const selectPermissionsData = createSelector(
   selectPermissionsResult,
