@@ -7,7 +7,8 @@ import { login } from "./store/authSlice";
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const { isLoading } = useGetPermissionsQuery();
+  const { isLoading, refetch } = useGetPermissionsQuery();
+
   const data = useAppSelector(selectAllPermissions);
   console.log(data);
 
@@ -25,7 +26,25 @@ const App = () => {
     }
   };
 
-  return <div onClick={handleLogin}>I am APP</div>;
+  const handleFetchPermissions = async (e: any) => {
+    e.preventDefault();
+    try {
+      refetch();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <>
+      <div onClick={handleLogin}>Login</div>
+      {!isLoading ? (
+        <div onClick={handleFetchPermissions}>Fetch Permissions</div>
+      ) : (
+        <div>Loading</div>
+      )}
+    </>
+  );
 };
 
 export default App;

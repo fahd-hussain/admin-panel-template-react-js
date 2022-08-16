@@ -1,10 +1,23 @@
 import { EntityAdapter, EntityState } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { envConfig } from "../../config";
+import { RootState } from "../../type/store.types";
 
 const emptySplitApi = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: envConfig.env().API_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: envConfig.env().API_URL,
+    prepareHeaders: (headers, { getState, endpoint }) => {      
+      const store = getState() as RootState;
+      const token = store.auth.accessToken;
+
+      if (token) {
+        headers.set("authentication", `Bearer ${token}`);
+      }
+
+      return headers;
+    },
+  }),
   tagTypes: [],
   endpoints: () => ({}),
 });
