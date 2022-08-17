@@ -45,6 +45,26 @@
       "id": 4,
       "route": "/dashboard",
       "type": "delete"
+    },
+    {
+      "id": 5,
+      "route": "/",
+      "type": "create"
+    },
+    {
+      "id": 6,
+      "route": "/",
+      "type": "read"
+    },
+    {
+      "id": 7,
+      "route": "/",
+      "type": "update"
+    },
+    {
+      "id": 8,
+      "route": "/",
+      "type": "delete"
     }
   ]
 }
